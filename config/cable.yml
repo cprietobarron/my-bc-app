@@ -1,0 +1,13 @@
+development:
+  # Use redis in Dev as Sidekiq does not support to send ActionCable notifications with async
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL", "redis://localhost:6379/1") %>
+  channel_prefix: channels_ruby_app_dev
+
+test:
+  adapter: test
+
+production:
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  channel_prefix: channels_ruby_app

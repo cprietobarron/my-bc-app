@@ -1,0 +1,12 @@
+---
+:timeout: 15
+:concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY", 5) %>
+
+:queues:
+  - critical
+  - default
+  - low
+
+:schedule:
+  SyncRecordsCleanupSchedulerWorker:
+    cron: '0 6 * * 0'         # Every sunday at 6 am UTC

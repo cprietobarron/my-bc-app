@@ -1,0 +1,5 @@
+---
+shared:
+
+development:
+  channel_ruby_use_dev_token: Use stored (in redis) credentials instead of 3P-Auth or OAuth
